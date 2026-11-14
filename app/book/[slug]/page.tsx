@@ -95,7 +95,7 @@ export default function BookPage() {
               </li>
             ))}
           </ol>
-          <p style={{ fontSize: 14, color: "#5a4e43" }}>{t.tocNote}</p>
+          <p style={{ fontSize: 14, color: "var(--muted)" }}>{t.tocNote}</p>
         </div>
       </section>
     </>
