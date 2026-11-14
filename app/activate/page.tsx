@@ -111,7 +111,7 @@ export default function ActivatePage() {
         {step === 3 && (
           <div className="stack" style={{ gap: 20, alignItems: "flex-start" }}>
             <div className="success-icon">
-              <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#14110F" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+              <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#F4E8D2" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
             </div>
             <h2 className="serif" style={{ fontSize: "clamp(24px, 5vw, 30px)", lineHeight: 1.25 }}>
               „{chosen.title[lang]}“ {t.activated}
