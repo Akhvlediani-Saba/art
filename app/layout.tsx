@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#14110F",
+  themeColor: "#F1E6D0",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@500;700&family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wdth,wght@62.5..100,500..900&family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@500;700&display=swap"
         />
       </head>
       <body>
