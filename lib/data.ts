@@ -14,7 +14,7 @@ export type Book = {
 export const BOOKS: Book[] = [
   {
     slug: "panduri",
-    color: "#6E2414",
+    color: "#5C1A12",
     name: { ka: "ფანდური", en: "Panduri" },
     title: { ka: "ფანდური — დამწყებთათვის", en: "Panduri for beginners" },
     desc: {
@@ -32,7 +32,7 @@ export const BOOKS: Book[] = [
   },
   {
     slug: "guitar",
-    color: "#24170E",
+    color: "#163A37",
     name: { ka: "გიტარა", en: "Guitar" },
     title: { ka: "გიტარა — დამწყებთათვის", en: "Guitar for beginners" },
     desc: {
