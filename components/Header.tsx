@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useApp } from "./AppProvider";
+import { RosetteMark } from "./Instruments";
 
 export function Header() {
   const { t, lang, setLang, user, logout } = useApp();
@@ -20,6 +21,7 @@ export function Header() {
       <div className="demo-banner">{t.demoBanner}</div>
       <header className="container header">
         <Link href="/" className="logo">
+          <RosetteMark />
           {t.artist}
         </Link>
         <nav className="nav-links" aria-label="Main">

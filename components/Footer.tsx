@@ -1,11 +1,13 @@
 "use client";
 
 import { useApp } from "./AppProvider";
+import { StringLines } from "./Instruments";
 
 export function Footer() {
   const { t, resetDemo } = useApp();
   return (
     <footer id="contact" className="footer">
+      <StringLines count={3} color="#A87C3A" className="footer-strings" />
       <div className="container footer-inner">
         <div className="footer-logo">{t.artist}</div>
         <div className="footer-links">
