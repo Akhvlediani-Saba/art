@@ -278,8 +278,8 @@ select.input { appearance: auto; }
 .book-panel-body { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
 .book-panel .price { font-family: var(--serif); font-weight: 700; font-size: 28px; }
 .panel-art { flex: 0 0 auto; width: 160px; height: 420px; filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.35)); }
-.panel-art-panduri { width: 110px; }
-@media (max-width: 600px) { .panel-art { height: 300px; width: 120px; } .panel-art-panduri { width: 80px; } }
+.panel-art-panduri { width: 130px; }
+@media (max-width: 600px) { .panel-art { height: 300px; width: 120px; } .panel-art-panduri { width: 92px; } }
 .video-frame { background: var(--ink-dark); padding: 12px; box-shadow: 0 0 0 6px var(--brass); }
 .video-rings { position: absolute; inset: 0; width: 100%; height: 100%; }
 .about-band { background: var(--surface); }
