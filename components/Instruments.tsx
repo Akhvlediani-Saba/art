@@ -147,14 +147,14 @@ export function Rosette({ className, style, label }: ArtProps) {
   ];
   return (
     <svg viewBox="0 0 460 460" className={className} style={style} {...a11y(label)}>
-      <circle cx="230" cy="230" r="222" fill="#E6D4B2" />
-      <circle cx="230" cy="230" r="206" fill="none" stroke="#3A2617" strokeWidth="2" />
-      <circle cx="230" cy="230" r="194" fill="none" stroke="#A87C3A" strokeWidth="16" strokeDasharray="6 4" />
-      <circle cx="230" cy="230" r="183" fill="none" stroke="#3A2617" strokeWidth="2" />
-      <circle cx="230" cy="230" r="176" fill="none" stroke="#8C2F1B" strokeWidth="8" strokeDasharray="2 6" />
-      <circle cx="230" cy="230" r="168" fill="none" stroke="#3A2617" strokeWidth="2" />
-      <circle cx="230" cy="230" r="158" fill="none" stroke="#A87C3A" strokeWidth="10" strokeDasharray="14 3 3 3" />
-      <circle cx="230" cy="230" r="146" fill="#24170E" />
+      <circle cx="230" cy="230" r="222" fill="#2E2218" />
+      <circle cx="230" cy="230" r="206" fill="none" stroke="#EFE3CB" strokeOpacity="0.45" strokeWidth="2" />
+      <circle cx="230" cy="230" r="194" fill="none" stroke="#D6A957" strokeWidth="16" strokeDasharray="6 4" />
+      <circle cx="230" cy="230" r="183" fill="none" stroke="#EFE3CB" strokeOpacity="0.45" strokeWidth="2" />
+      <circle cx="230" cy="230" r="176" fill="none" stroke="#B83F28" strokeWidth="8" strokeDasharray="2 6" />
+      <circle cx="230" cy="230" r="168" fill="none" stroke="#EFE3CB" strokeOpacity="0.45" strokeWidth="2" />
+      <circle cx="230" cy="230" r="158" fill="none" stroke="#D6A957" strokeWidth="10" strokeDasharray="14 3 3 3" />
+      <circle cx="230" cy="230" r="146" fill="#0D0906" />
       {gauges.map(([x, w, c]) => (
         <path key={x} d={`M${x} 0 V460`} stroke={c} strokeWidth={w} strokeLinecap="round" />
       ))}
@@ -166,14 +166,15 @@ export function Rosette({ className, style, label }: ArtProps) {
 export function RosetteMark({ size = 30 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 34 34" aria-hidden="true">
-      <circle cx="17" cy="17" r="15" fill="none" stroke="#A87C3A" strokeWidth="4" strokeDasharray="2.5 2" />
-      <circle cx="17" cy="17" r="9" fill="#3A2617" />
+      <circle cx="17" cy="17" r="15" fill="none" stroke="#D6A957" strokeWidth="4" strokeDasharray="2.5 2" />
+      <circle cx="17" cy="17" r="9" fill="#B83F28" />
+      <circle cx="17" cy="17" r="4" fill="#17110C" />
     </svg>
   );
 }
 
 /** Horizontal strings used as section dividers: 3 for panduri, 6 for guitar. */
-export function StringLines({ count = 3, color = "#D9C49A", className }: { count?: 3 | 6; color?: string; className?: string }) {
+export function StringLines({ count = 3, color = "#D6A957", className }: { count?: 3 | 6; color?: string; className?: string }) {
   const h = count === 3 ? 36 : 48;
   const gap = count === 3 ? 10 : 7;
   return (
