@@ -13,61 +13,71 @@ function a11y(label?: string) {
 
 export function Panduri({ className, style, label }: ArtProps) {
   const id = useId().replace(/:/g, "");
-  const body = `pb${id}`, top = `pt${id}`, neck = `pn${id}`;
-  const frets = [104, 125, 145, 164, 182, 199, 214, 229, 243, 257, 269, 281];
-  const holes = [0, 60, 120, 180, 240, 300].map((a) => [70 + 13 * Math.cos((a * Math.PI) / 180), 405 + 13 * Math.sin((a * Math.PI) / 180)]);
+  const top = `pt${id}`, neck = `pn${id}`;
+  // Georgian panduri: flat spruce top with angled shoulders tapering to a narrow
+  // base, dark neck with a scrolled head, three side tuners, painted rosette.
+  const frets = [118, 142, 165, 186, 206, 225, 242, 259, 274, 289, 302, 315];
+  const inlays = [153.5, 196, 233.5, 266.5];
+  const leaves = [45, 135, 225, 315].map((a) => {
+    const r = (a * Math.PI) / 180;
+    return { x: 80 + 31 * Math.cos(r), y: 420 + 31 * Math.sin(r), a: a + 90 };
+  });
   return (
-    <svg viewBox="0 0 140 560" className={className} style={style} {...a11y(label)}>
+    <svg viewBox="0 0 160 600" className={className} style={style} {...a11y(label)}>
       <defs>
-        <radialGradient id={body} cx="42%" cy="62%" r="62%">
-          <stop offset="0" stopColor="#C98A4B" />
-          <stop offset="0.7" stopColor="#8A4E24" />
-          <stop offset="1" stopColor="#4E2A12" />
-        </radialGradient>
-        <radialGradient id={top} cx="42%" cy="58%" r="68%">
-          <stop offset="0" stopColor="#E6BE80" />
-          <stop offset="1" stopColor="#A9743C" />
-        </radialGradient>
+        <linearGradient id={top} x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stopColor="#C99A5E" />
+          <stop offset="0.12" stopColor="#E6C893" />
+          <stop offset="0.5" stopColor="#EED6A6" />
+          <stop offset="0.88" stopColor="#E2C38C" />
+          <stop offset="1" stopColor="#BF8F55" />
+        </linearGradient>
         <linearGradient id={neck} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#3B2010" />
-          <stop offset="0.5" stopColor="#6A3C1C" />
-          <stop offset="1" stopColor="#3B2010" />
+          <stop offset="0" stopColor="#2A170C" />
+          <stop offset="0.5" stopColor="#5A3519" />
+          <stop offset="1" stopColor="#2A170C" />
         </linearGradient>
       </defs>
-      {/* rear tuning pegs */}
-      <path d="M54 26 H38 M54 50 H38 M86 38 H102" stroke="#2A160A" strokeWidth="6" strokeLinecap="round" />
-      <ellipse cx="34" cy="26" rx="6" ry="9" fill="#6A3C1C" stroke="#2A160A" strokeWidth="1.2" />
-      <ellipse cx="34" cy="50" rx="6" ry="9" fill="#6A3C1C" stroke="#2A160A" strokeWidth="1.2" />
-      <ellipse cx="106" cy="38" rx="6" ry="9" fill="#6A3C1C" stroke="#2A160A" strokeWidth="1.2" />
-      {/* head */}
-      <path d="M58 82 L54 22 C54 10 62 4 70 4 C78 4 86 10 86 22 L82 82 Z" fill={`url(#${neck})`} stroke="#2A160A" strokeWidth="1.5" />
-      <circle cx="70" cy="13" r="3" fill="#2A160A" />
-      <circle cx="64" cy="26" r="2.4" fill="#E3BE7A" />
-      <circle cx="76" cy="38" r="2.4" fill="#E3BE7A" />
-      <circle cx="64" cy="50" r="2.4" fill="#E3BE7A" />
-      {/* carved body + soundboard */}
-      <path d="M57 286 C40 310 20 360 16 420 C12 490 40 546 70 546 C100 546 128 490 124 420 C120 360 100 310 83 286 Z" fill={`url(#${body})`} stroke="#E3BE7A" strokeWidth="1.2" />
-      <path d="M60 300 C46 322 28 368 25 422 C22 485 46 534 70 534 C94 534 118 485 115 422 C112 368 94 322 80 300 Z" fill={`url(#${top})`} stroke="#5A3319" strokeWidth="1.2" />
-      <path d="M62 307 C49 328 32 370 29 422 C26 481 48 528 70 528 C92 528 114 481 111 422 C108 370 91 328 78 307 Z" fill="none" stroke="#6B3A1A" strokeWidth="1" strokeDasharray="2 2" />
-      {/* neck + frets */}
-      <path d="M60 84 L57 322 H83 L80 84 Z" fill={`url(#${neck})`} />
-      <rect x="59" y="80" width="22" height="4" fill="#EFE4CC" />
+      {/* three side tuners with ivory keys */}
+      {[34, 56, 78].map((y) => (
+        <g key={y}>
+          <path d={`M68 ${y} H44`} stroke="#B9B2A6" strokeWidth="3" />
+          <ellipse cx="38" cy={y} rx="9" ry="6.5" fill="#F1EBDD" stroke="#8C8478" strokeWidth="1" />
+          <circle cx="78" cy={y} r="2.6" fill="#D8D2C6" />
+        </g>
+      ))}
+      {/* head with scroll */}
+      <path d="M68 98 L64 24 C64 11 72 4 83 4 C95 4 101 12 99 23 L95 98 Z" fill={`url(#${neck})`} stroke="#140A04" strokeWidth="1.4" />
+      <path d="M99 22 C108 18 109 7 100 4 C94 2 90 8 94 12" fill="none" stroke="#140A04" strokeWidth="3" strokeLinecap="round" />
+      {/* body: angled shoulders, long taper, narrow base */}
+      <path d="M64 330 H96 L146 392 Q151 398 150 405 L125 582 Q124 592 114 592 H46 Q36 592 35 582 L10 405 Q9 398 14 392 Z" fill={`url(#${top})`} stroke="#8A5E30" strokeWidth="1.6" />
+      <path d="M66 336 H94 L141 394 Q145 399 144 405 L120 579 Q119 586 112 586 H48 Q41 586 40 579 L16 405 Q15 399 19 394 Z" fill="none" stroke="#B08048" strokeWidth="0.8" strokeOpacity="0.6" />
+      {[40, 58, 102, 120].map((x) => (
+        <path key={x} d={`M${x} 400 L${80 + (x - 80) * 0.75} 580`} stroke="#C9A06A" strokeWidth="0.6" strokeOpacity="0.5" />
+      ))}
+      {/* neck + fingerboard running onto the top */}
+      <path d="M68 98 L65 336 L80 356 L95 336 L92 98 Z" fill={`url(#${neck})`} />
+      <rect x="67" y="96" width="26" height="4" fill="#EFE4CC" />
       {frets.map((y, i) => (
-        <path key={y} d={`M${59.5 - i * 0.14} ${y} H${80.5 + i * 0.14}`} stroke="#CFC6B4" strokeWidth="1.6" />
+        <path key={y} d={`M${67.6 - i * 0.2} ${y} H${92.4 + i * 0.2}`} stroke="#CFC6B4" strokeWidth="1.4" />
       ))}
-      {/* cluster of small sound holes */}
-      <circle cx="70" cy="405" r="19" fill="none" stroke="#6B3A1A" strokeWidth="1" />
-      <circle cx="70" cy="405" r="4" fill="#2A160A" />
-      {holes.map(([x, y]) => (
-        <circle key={`${x}-${y}`} cx={x} cy={y} r="2.6" fill="#2A160A" />
+      {inlays.map((y) => (
+        <circle key={y} cx="80" cy={y} r="2.2" fill="#EFE4CC" />
       ))}
-      {/* bridge, tail button, strings */}
-      <rect x="54" y="476" width="32" height="7" rx="1.5" fill="#2A160A" />
-      <path d="M56 477.5 H84" stroke="#EFE4CC" strokeWidth="1.4" />
-      <rect x="64" y="532" width="12" height="6" rx="2" fill="#2A160A" />
-      <path d="M64 26 L65 82 L63 478 L67 535" fill="none" stroke="#F2E6CC" strokeWidth="0.95" />
-      <path d="M64 50 L70 82 L70 478 L70 535" fill="none" stroke="#F2E6CC" strokeWidth="0.8" />
-      <path d="M76 38 L75 82 L77 478 L73 535" fill="none" stroke="#F2E6CC" strokeWidth="0.7" />
+      {/* painted rosette around the soundhole */}
+      <circle cx="80" cy="420" r="37" fill="none" stroke="#2A170C" strokeWidth="1" />
+      <circle cx="80" cy="420" r="33" fill="none" stroke="#D9922E" strokeWidth="5" strokeDasharray="5 3" />
+      <circle cx="80" cy="420" r="28" fill="none" stroke="#B83F28" strokeWidth="1.6" strokeDasharray="1.5 2.5" />
+      {leaves.map((l) => (
+        <ellipse key={l.a} cx={l.x} cy={l.y} rx="2.6" ry="5" fill="#3F7A3A" transform={`rotate(${l.a} ${l.x} ${l.y})`} />
+      ))}
+      <circle cx="80" cy="420" r="24" fill="#140A04" />
+      {/* bone bridge, strings to the tail */}
+      <rect x="64" y="508" width="32" height="7" rx="2" fill="#F3EEE2" stroke="#B9B2A6" strokeWidth="0.8" />
+      <path d="M78 34 L76 98 L75 511 L77 590" fill="none" stroke="#ECE6DA" strokeWidth="0.95" />
+      <path d="M78 56 L80 98 L80 511 L80 590" fill="none" stroke="#ECE6DA" strokeWidth="0.8" />
+      <path d="M78 78 L84 98 L85 511 L83 590" fill="none" stroke="#ECE6DA" strokeWidth="0.7" />
+      <rect x="72" y="586" width="16" height="5" rx="1.5" fill="#2A170C" />
     </svg>
   );
 }
