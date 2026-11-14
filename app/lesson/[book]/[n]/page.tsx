@@ -51,7 +51,7 @@ export default function LessonPage() {
           <div className="video-box">
             {/* Placeholder: the real player (Bunny Stream / Cloudflare Stream, signed URL) goes here. */}
             <button type="button" className="play-btn" aria-label="Play">
-              <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#14110F" /></svg>
+              <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#F4E8D2" /></svg>
             </button>
             {user && <span className="watermark">{user}</span>}
             <div className="progress-bar">
@@ -64,7 +64,7 @@ export default function LessonPage() {
           </div>
         ) : (
           <div className="locked">
-            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E3B252" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8C2F1B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
             <h2>{t.lockedH}</h2>
             <p>{t.lockedB}</p>
             <div className="btn-row" style={{ justifyContent: "center" }}>
